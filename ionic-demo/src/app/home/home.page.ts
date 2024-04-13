@@ -12,6 +12,8 @@ import { Personaje, PersonajesService } from '../personajes.service';
 export class HomePage {
   
   Personajes: Array<Personaje> = [];
+  pagina: number = 1;
+  cargando: boolean = false;
 
   constructor(private PersonajesService: PersonajesService) {}
 
@@ -21,5 +23,18 @@ export class HomePage {
     }
 
     );
+
   }
+
+  cargarPorPagina(event: CustomEvent){
+    this.cargando = true;
+    const paginaSeleccionada = event.detail.value;
+    this.PersonajesService.fnCargar(paginaSeleccionada).subscribe(
+      (listado) => {
+        this.Personajes = listado;
+        this.cargando = false;
+      }
+  )
+
+}
 }

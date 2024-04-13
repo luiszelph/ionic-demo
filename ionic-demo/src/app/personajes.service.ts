@@ -31,7 +31,7 @@ export class PersonajesService {
 
   constructor() { }
 
- fnCargar() {
+ fnCargar(pagina: number = 1) {
     return this.http.get<Result>(
       'https://rickandmortyapi.com/api/character'
       ).pipe(
