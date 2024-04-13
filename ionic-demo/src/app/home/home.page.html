@@ -15,11 +15,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
   @for (item of Personajes; track 'id') {
     <ion-item>
-      <ion-avatar>
-        <img [src]="item.image">
+      <ion-avatar slot="start">
+        <img [alt]="item.name" [src]="item.image">
       </ion-avatar>
       <ion-label>
         <h2>

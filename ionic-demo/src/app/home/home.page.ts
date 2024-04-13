@@ -18,7 +18,7 @@ export class HomePage {
   constructor(private PersonajesService: PersonajesService) {}
 
   ngOnInit() {
-    this.PersonajesService.fnCargar().subscribe( res => {
+    this.PersonajesService.fnCargar(1).subscribe( res => {
       this.Personajes = res;
     }
 
@@ -34,7 +34,6 @@ export class HomePage {
         this.Personajes = listado;
         this.cargando = false;
       }
-  )
-
-}
+    )
+  }
 }
